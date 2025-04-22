@@ -12,6 +12,11 @@ export default function FeaturesSection() {
       description: "AI agent that automates real-time audit, compliance proof (ISO/SOC) and threat prevention—turning all activity into auditable evidence."
     },
     {
+      icon: "fas fa-file-alt",
+      title: "Secure Cloud (Google Docs/Sheets)",
+      description: "Safeguards data with advanced encryption by tokens, cell level, and data access controls for complete document security."
+    },
+    {
       icon: "fas fa-video",
       title: "Secure Meet",
       description: "Encrypted communications platform for secure video conferences, messaging, and collaboration with E2E encryption."

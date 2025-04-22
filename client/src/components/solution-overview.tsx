@@ -29,6 +29,16 @@ export default function SolutionOverview() {
                   <td className="py-4 px-6 text-neutral-700">Others rely on vulnerable TLS or bolt-on VPNs</td>
                 </tr>
                 <tr>
+                  <td className="py-4 px-6 font-medium">Secure Cloud (Google Docs/Sheets)</td>
+                  <td className="py-4 px-6">
+                    <ul className="list-disc list-inside text-neutral-700">
+                      <li>Advanced encryption by tokens and cell-level</li>
+                      <li>Customizable data access controls</li>
+                    </ul>
+                  </td>
+                  <td className="py-4 px-6 text-neutral-700">Competitors offer limited document-level encryption only</td>
+                </tr>
+                <tr>
                   <td className="py-4 px-6 font-medium">SOS²A AI Agent</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">

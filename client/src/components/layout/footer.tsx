@@ -25,6 +25,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Products</h4>
             <ul className="space-y-2">
               <li><Link href="/#sos2a" className="text-neutral-300 hover:text-white">SOS²A</Link></li>
+              <li><Link href="/#features" className="text-neutral-300 hover:text-white">Secure Cloud (Google Docs/Sheets)</Link></li>
               <li><Link href="/#features" className="text-neutral-300 hover:text-white">Secure Meet</Link></li>
               <li><Link href="/#features" className="text-neutral-300 hover:text-white">Secure Payment</Link></li>
               <li><Link href="/#features" className="text-neutral-300 hover:text-white">Secure Business Cloud</Link></li>
