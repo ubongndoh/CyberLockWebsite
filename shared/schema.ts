@@ -31,6 +31,21 @@ export const assessments = pgTable("assessments", {
   updatedAt: timestamp("updated_at").defaultNow(),
 });
 
+export const earlyAccessSubmissions = pgTable("early_access_submissions", {
+  id: serial("id").primaryKey(),
+  fullName: text("full_name").notNull(),
+  email: text("email").notNull(),
+  company: text("company").notNull(),
+  phone: text("phone").notNull(),
+  companySize: text("company_size").notNull(),
+  industry: text("industry").notNull(),
+  interestedIn: text("interested_in").array(),
+  investmentLevel: text("investment_level").notNull(),
+  additionalInfo: text("additional_info"),
+  status: text("status").default("pending"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
