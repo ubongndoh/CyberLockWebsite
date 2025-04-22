@@ -30,7 +30,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
                       <li>ECSMID: End-point to end-point encryption system (Claim 2)</li>
-                      <li>DLSeT: Self-learning threat detection (Claim 5)</li>
+                      <li>DLSeT: Distributed Ledger System for digital transactions (Claim 5)</li>
                     </ul>
                   </td>
                   <td className="py-4 px-6 text-neutral-700">Others rely on signature-based detection</td>
@@ -40,7 +40,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
                       <li>DsTC: Decentralized secure true digital ID for compliance (Claim 4)</li>
-                      <li>DLSeT: Adaptive mitigation strategies (Claim 7)</li>
+                      <li>DLSeT: Distributed Ledger for secure electronic transactions (Claim 7)</li>
                     </ul>
                   </td>
                   <td className="py-4 px-6 text-neutral-700">Manual policy updates required elsewhere</td>
@@ -49,7 +49,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6 font-medium">Hybrid SOC</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
-                      <li>DLSeT: AI that evolves with attacker TTPs (Claim 9)</li>
+                      <li>DLSeT: Distributed Ledger transaction verification (Claim 9)</li>
                     </ul>
                   </td>
                   <td className="py-4 px-6 text-neutral-700">Static AI models (Cynet, CrowdStrike)</td>
@@ -97,11 +97,11 @@ export default function PatentSection() {
           
           <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <i className="fas fa-brain text-3xl text-primary"></i>
+              <i className="fas fa-exchange-alt text-3xl text-primary"></i>
             </div>
             <h3 className="text-lg font-semibold mb-2">U.S. Patent 11,367,065</h3>
-            <p className="text-neutral-600 mb-3">DLSeT: Deep Learning Security Threat Detection</p>
-            <span className="text-xs bg-accent/20 text-accent px-3 py-1 rounded-full">Self-Learning Threat Prevention</span>
+            <p className="text-neutral-600 mb-3">DLSeT: Distributed Ledger System for Electronic Transaction</p>
+            <span className="text-xs bg-accent/20 text-accent px-3 py-1 rounded-full">Blockchain-Based Transaction Security</span>
           </div>
           
           <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center border-2 border-dashed border-secondary">
