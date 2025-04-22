@@ -57,6 +57,9 @@ export default function Header() {
               <a href={getHashLink("patents")} onClick={navigateToSection("patents")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Patents
               </a>
+              <a href={getHashLink("roadmap")} onClick={navigateToSection("roadmap")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                Roadmap
+              </a>
               <a href={getHashLink("pricing")} onClick={navigateToSection("pricing")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Pricing
               </a>

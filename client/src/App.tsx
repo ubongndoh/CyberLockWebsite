@@ -9,6 +9,7 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Sos2aTool from "@/pages/sos2a-tool";
 import ColorDemo from "@/pages/color-demo";
+import EarlyAccess from "@/pages/early-access";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/sos2a-tool" component={Sos2aTool} />
           <Route path="/color-demo" component={ColorDemo} />
+          <Route path="/early-access" component={EarlyAccess} />
           <Route component={NotFound} />
         </Switch>
       </main>
