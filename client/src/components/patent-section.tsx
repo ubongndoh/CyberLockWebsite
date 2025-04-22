@@ -109,8 +109,8 @@ export default function PatentSection() {
               <i className="fas fa-language text-3xl text-secondary"></i>
             </div>
             <h3 className="text-lg font-semibold mb-2">Patent-Pending</h3>
-            <p className="text-neutral-600 mb-3">AFAAI: Low-Resource Language AI System</p>
-            <span className="text-xs bg-secondary/20 text-secondary px-3 py-1 rounded-full">Revolutionary Ethnic Language Integration</span>
+            <p className="text-neutral-600 mb-3">AFAAI: Low-Resource Language Model With Cyberdefense</p>
+            <span className="text-xs bg-secondary/20 text-secondary px-3 py-1 rounded-full">Secure Multilingual AI Technology</span>
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ export default function AfaaiSection() {
             AFAAI Browser: The Heart of Our Security Revolution
           </h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-            Our revolutionary AFAAI (Authentic Functional Artificial Augmented Intelligence) Browser technology forms the 
+            Our revolutionary AFAAI (Adaptive Functional Artificial Augmented Intelligence) Browser technology forms the 
             central nervous system of the entire CyberLockX security ecosystem, fundamentally transforming how SMB applications 
             are protected in real-time.
           </p>
@@ -72,7 +72,7 @@ export default function AfaaiSection() {
 
           <div className="relative">
             <div className="bg-white rounded-xl shadow-xl p-8 border border-primary/20">
-              <h3 className="text-xl font-bold text-primary mb-6">The AFAAI Innovation</h3>
+              <h3 className="text-xl font-bold text-primary mb-6">The AFAAI Cyberdefense Innovation</h3>
               <div className="space-y-4">
                 <div className="bg-neutral-50 p-4 rounded-lg">
                   <h4 className="font-semibold text-primary mb-2">Unified Alphabet System (Σ<sub>U</sub>)</h4>
