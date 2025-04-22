@@ -57,6 +57,9 @@ export default function Header() {
               <a href={getHashLink("patents")} onClick={navigateToSection("patents")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Patents
               </a>
+              <a href={getHashLink("afaai")} onClick={navigateToSection("afaai")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+                AFAAI
+              </a>
               <a href={getHashLink("roadmap")} onClick={navigateToSection("roadmap")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Roadmap
               </a>
@@ -96,6 +99,12 @@ export default function Header() {
           </a>
           <a href={getHashLink("patents")} onClick={(e) => { navigateToSection("patents")(e); closeMobileMenu(); }} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
             Patents
+          </a>
+          <a href={getHashLink("afaai")} onClick={(e) => { navigateToSection("afaai")(e); closeMobileMenu(); }} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
+            AFAAI
+          </a>
+          <a href={getHashLink("roadmap")} onClick={(e) => { navigateToSection("roadmap")(e); closeMobileMenu(); }} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
+            Roadmap
           </a>
           <a href={getHashLink("pricing")} onClick={(e) => { navigateToSection("pricing")(e); closeMobileMenu(); }} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
             Pricing

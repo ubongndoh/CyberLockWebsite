@@ -8,6 +8,7 @@ import PricingSection from "@/components/pricing-section";
 import DemoSection from "@/components/demo-section";
 import ContactSection from "@/components/contact-section";
 import RoadmapSection from "@/components/roadmap-section";
+import AfaaiSection from "@/components/afaai-section";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <SolutionOverview />
       <Sos2aSection />
       <PatentSection />
+      <AfaaiSection />
       <RoadmapSection />
       <CompetitiveComparison />
       <PricingSection />

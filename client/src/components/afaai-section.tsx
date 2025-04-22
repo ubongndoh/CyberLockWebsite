@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import AfaaiBrowser from "./afaai-browser";
 
 export default function AfaaiSection() {
   return (
@@ -108,6 +109,14 @@ export default function AfaaiSection() {
               Patent-Pending
             </div>
           </div>
+        </div>
+        
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold text-primary text-center mb-6">Experience AFAAI in Action</h3>
+          <p className="text-lg text-neutral-600 text-center max-w-3xl mx-auto mb-8">
+            See how AFAAI powers and protects our secure SMB application hub
+          </p>
+          <AfaaiBrowser />
         </div>
       </div>
     </section>
