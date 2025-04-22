@@ -35,10 +35,11 @@ export class DatabaseStorage implements IStorage {
       .values({
         username: insertUser.username,
         password: insertUser.password,
-        fullName: insertUser.fullName ?? null,
-        email: insertUser.email ?? null,
-        companyName: insertUser.companyName ?? null,
-        role: insertUser.role ?? "user",
+        fullName: insertUser.fullName || null,
+        email: insertUser.email || null,
+        companyName: insertUser.companyName || null,
+        role: insertUser.role || "user",
+        createdAt: new Date(),
       })
       .returning();
     return user;
@@ -61,18 +62,20 @@ export class DatabaseStorage implements IStorage {
     const [assessment] = await db
       .insert(assessments)
       .values({
-        userId: insertAssessment.userId ?? null,
+        userId: insertAssessment.userId || null,
         businessName: insertAssessment.businessName,
         industry: insertAssessment.industry,
         employeeCount: insertAssessment.employeeCount,
-        securityMeasures: insertAssessment.securityMeasures,
-        primaryConcerns: insertAssessment.primaryConcerns,
+        securityMeasures: insertAssessment.securityMeasures || [],
+        primaryConcerns: insertAssessment.primaryConcerns || [],
         contactInfo: insertAssessment.contactInfo,
         reportType: insertAssessment.reportType,
         securityScore,
-        matrixData: insertAssessment.matrixData ?? null,
-        findings: insertAssessment.findings ?? null,
-        recommendations: insertAssessment.recommendations ?? null
+        matrixData: insertAssessment.matrixData || null,
+        findings: insertAssessment.findings || null,
+        recommendations: insertAssessment.recommendations || null,
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
       .returning();
     
@@ -92,18 +95,18 @@ export class DatabaseStorage implements IStorage {
     const [assessment] = await db
       .update(assessments)
       .set({
-        userId: updatedAssessment.userId ?? existingAssessment.userId,
+        userId: updatedAssessment.userId || existingAssessment.userId,
         businessName: updatedAssessment.businessName,
         industry: updatedAssessment.industry,
         employeeCount: updatedAssessment.employeeCount,
-        securityMeasures: updatedAssessment.securityMeasures,
-        primaryConcerns: updatedAssessment.primaryConcerns,
+        securityMeasures: updatedAssessment.securityMeasures || existingAssessment.securityMeasures,
+        primaryConcerns: updatedAssessment.primaryConcerns || existingAssessment.primaryConcerns,
         contactInfo: updatedAssessment.contactInfo,
         reportType: updatedAssessment.reportType,
         securityScore,
-        matrixData: updatedAssessment.matrixData ?? existingAssessment.matrixData,
-        findings: updatedAssessment.findings ?? existingAssessment.findings,
-        recommendations: updatedAssessment.recommendations ?? existingAssessment.recommendations,
+        matrixData: updatedAssessment.matrixData || existingAssessment.matrixData,
+        findings: updatedAssessment.findings || existingAssessment.findings,
+        recommendations: updatedAssessment.recommendations || existingAssessment.recommendations,
         updatedAt: new Date()
       })
       .where(eq(assessments.id, id))
@@ -113,11 +116,13 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteAssessment(id: number): Promise<boolean> {
-    const result = await db
+    await db
       .delete(assessments)
       .where(eq(assessments.id, id));
     
-    return result.count > 0;
+    // Check if the assessment still exists
+    const assessment = await this.getAssessment(id);
+    return !assessment;
   }
   
   private calculateSecurityScore(assessment: InsertAssessment): number {
