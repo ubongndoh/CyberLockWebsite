@@ -133,7 +133,7 @@ export default function AfaaiSection() {
             <div className="relative z-10">
               <h3 className="text-3xl font-bold text-primary text-center mb-6">The AFAAI Browser: SMB Security Revolution</h3>
               <p className="text-lg text-neutral-700 text-center max-w-3xl mx-auto mb-8">
-                <span className="font-semibold text-primary">The AFAAI Browser is the beating heart of the SMB Security Application Hub</span> — 
+                <span className="font-semibold text-primary">The AFAAI Browser is the beating heart of the SMB Application Security Hub (SASH)</span> — 
                 a groundbreaking command center that transcends conventional security approaches by fusing 
                 triple-patented language technology with real-time threat intelligence across all secure applications.
               </p>
