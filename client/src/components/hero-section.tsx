@@ -1,5 +1,4 @@
 import { Link } from "wouter";
-import cyberlockxLogo from "../assets/cyberlockx-logo.png";
 
 export default function HeroSection() {
   return (
@@ -7,15 +6,12 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
-            <div className="flex items-center mb-6">
-              <img src={cyberlockxLogo} alt="CyberLockX Logo" className="h-20 w-auto mr-4" />
-              <div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-tight">
-                  CyberLockX
-                </h1>
-                <p className="text-xl text-neutral-100">Securing every click!</p>
-              </div>
-            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-tight mb-2">
+              CyberLockX
+            </h1>
+            <p className="text-xl md:text-2xl mb-6 text-neutral-100">
+              Securing every click!
+            </p>
             <h2 className="text-2xl md:text-3xl font-bold font-heading leading-tight mb-4">
               The Ultimate Secure Business Application Hub
             </h2>
