@@ -59,7 +59,7 @@ export default function ComprehensiveReport({
                 comprehensive report with quantitative analysis, we need to monitor your systems for 6 months.
               </p>
               <p className="text-neutral-600 mb-4">
-                During this period, SOS2A will collect data on your security posture, identify potential threats,
+                During this period, SOS²A will collect data on your security posture, identify potential threats,
                 and provide real-time protection against emerging vulnerabilities.
               </p>
               <div className="flex items-center bg-blue-50 p-4 rounded-lg">

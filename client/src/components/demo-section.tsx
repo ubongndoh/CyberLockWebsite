@@ -22,7 +22,7 @@ export default function DemoSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg shadow border border-neutral-200">
                 <h4 className="font-medium text-lg mb-2">Scene 1: Phishing Prevention</h4>
-                <p className="text-neutral-600 text-sm">See how our AFA browser blocks sophisticated phishing attempts while SOS2A logs the attempt for PCI DSS compliance.</p>
+                <p className="text-neutral-600 text-sm">See how our AFAAI browser blocks sophisticated phishing attempts while SOS²A logs the attempt for PCI DSS compliance.</p>
               </div>
               
               <div className="bg-white p-4 rounded-lg shadow border border-neutral-200">

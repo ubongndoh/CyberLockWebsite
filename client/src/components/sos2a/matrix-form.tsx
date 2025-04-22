@@ -28,7 +28,7 @@ export default function MatrixForm({
   onPrev,
 }: MatrixFormProps) {
   const [matrixData, setMatrixData] = useState<any>({
-    // Using a simplified matrix structure based on SOS2A assessment matrix
+    // Using a simplified matrix structure based on SOS²A assessment matrix
     internet_presence: {
       risks: [
         "Phishing & Spoofing",

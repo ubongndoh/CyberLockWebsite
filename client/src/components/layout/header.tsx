@@ -52,7 +52,7 @@ export default function Header() {
                 Solution
               </a>
               <a href={getHashLink("sos2a")} onClick={navigateToSection("sos2a")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                SOS2A
+                SOS²A
               </a>
               <a href={getHashLink("patents")} onClick={navigateToSection("patents")} className="text-neutral-100 hover:text-accent border-transparent inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
                 Patents
@@ -95,7 +95,7 @@ export default function Header() {
             Solution
           </a>
           <a href={getHashLink("sos2a")} onClick={(e) => { navigateToSection("sos2a")(e); closeMobileMenu(); }} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
-            SOS2A
+            SOS²A
           </a>
           <a href={getHashLink("patents")} onClick={(e) => { navigateToSection("patents")(e); closeMobileMenu(); }} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
             Patents

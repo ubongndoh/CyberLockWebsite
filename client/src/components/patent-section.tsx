@@ -36,7 +36,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6 text-neutral-700">Others rely on signature-based detection</td>
                 </tr>
                 <tr>
-                  <td className="py-4 px-6 font-medium">SOS2A AI Agent</td>
+                  <td className="py-4 px-6 font-medium">SOS²A AI Agent</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
                       <li>DsTC: Immutable compliance chains (Claim 4)</li>
