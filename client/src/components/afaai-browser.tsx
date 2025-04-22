@@ -43,8 +43,8 @@ export default function AfaaiBrowser() {
     <div className="relative">
       {/* Central "heart" badge */}
       <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white">
-          HEART OF CYBERLOCKX
+        <div className="bg-secondary text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg border-2 border-white animate-pulse">
+          REVOLUTIONARY SECURITY CORE ENGINE
         </div>
       </div>
     

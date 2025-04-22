@@ -113,7 +113,7 @@ export default function AfaaiSection() {
         </div>
         
         <div className="mt-16 relative">
-          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10">
             <div className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-lg">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -122,22 +122,32 @@ export default function AfaaiSection() {
             </div>
           </div>
           
-          <div className="bg-gradient-to-b from-primary/30 to-primary/5 rounded-3xl pt-16 pb-12 px-6 sm:px-12">
-            <h3 className="text-3xl font-bold text-primary text-center mb-6">The AFAAI Browser Engine</h3>
-            <p className="text-lg text-neutral-700 text-center max-w-3xl mx-auto mb-8">
-              At the heart of CyberLockX is our revolutionary AFAAI Browser - the security control center that
-              monitors, protects, and integrates all secure applications in real-time with proprietary
-              language-driven defense mechanisms.
-            </p>
-            <AfaaiBrowser />
+          <div className="bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 rounded-3xl pt-16 pb-12 px-6 sm:px-12 border-2 border-primary/30 shadow-2xl relative overflow-hidden">
+            {/* Decorative elements */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10">
+              <div className="absolute w-96 h-96 bg-secondary rounded-full -top-20 -left-20 mix-blend-overlay"></div>
+              <div className="absolute w-96 h-96 bg-primary rounded-full -bottom-20 -right-20 mix-blend-overlay"></div>
+            </div>
             
-            <div className="mt-8 text-center">
-              <Link href="/early-access" className="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary/90 text-white rounded-lg font-medium shadow-md transition-all hover:shadow-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-                </svg>
-                Get Early Access to AFAAI Browser Technology
-              </Link>
+            {/* Content container with higher z-index */}
+            <div className="relative z-10">
+              <h3 className="text-3xl font-bold text-primary text-center mb-6">The AFAAI Browser: SMB Security Revolution</h3>
+              <p className="text-lg text-neutral-700 text-center max-w-3xl mx-auto mb-8">
+                <span className="font-semibold text-primary">The AFAAI Browser is the beating heart of the SMB Security Application Hub</span> — 
+                a groundbreaking command center that transcends conventional security approaches by fusing 
+                triple-patented language technology with real-time threat intelligence across all secure applications.
+              </p>
+              
+              <AfaaiBrowser />
+              
+              <div className="mt-8 text-center">
+                <Link href="/early-access" className="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary/90 text-white rounded-lg font-medium shadow-md transition-all hover:shadow-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                  </svg>
+                  Get Early Access to AFAAI Browser Technology
+                </Link>
+              </div>
             </div>
           </div>
         </div>
