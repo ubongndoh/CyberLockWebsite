@@ -13,7 +13,7 @@ export default function HeroSection() {
               Securing every click!
             </p>
             <h2 className="text-2xl md:text-3xl font-bold font-heading leading-tight mb-4">
-              The Ultimate Secure Business Application Hub
+              The Ultimate SMB Application Security Hub
             </h2>
             <p className="mb-8 text-neutral-200">
               The only SMB platform that eliminates threats, automates compliance, and unifies business apps—with patented quantum-safe encryption and cell-level data protection at its core.

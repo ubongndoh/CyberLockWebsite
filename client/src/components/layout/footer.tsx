@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-bold font-heading mb-4">CyberLockX</h3>
-            <p className="text-neutral-300 mb-4">The Ultimate Secure Business Application Hub for small and medium-sized businesses.</p>
+            <p className="text-neutral-300 mb-4">The Ultimate SMB Application Security Hub for small and medium-sized businesses.</p>
             <div className="flex space-x-4">
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent">
                 <i className="fab fa-twitter"></i>
