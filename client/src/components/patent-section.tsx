@@ -39,7 +39,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6 font-medium">SOS²A AI Agent</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
-                      <li>DsTC: Immutable compliance chains (Claim 4)</li>
+                      <li>DsTC: Decentralized secure true digital ID for compliance (Claim 4)</li>
                       <li>DLSeT: Adaptive mitigation strategies (Claim 7)</li>
                     </ul>
                   </td>
@@ -58,7 +58,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6 font-medium text-primary">Integrated Apps</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
-                      <li>ECSMID + DsTC: Unified quantum-safe surface for:
+                      <li>ECSMID + DsTC (Decentralized secure true digital ID): Unified quantum-safe surface for:
                         <ul className="list-disc list-inside ml-4">
                           <li>Google Docs/Sheets (cell-level encryption)</li>
                           <li>Cloud (AWS/Azure/GCP)</li>
@@ -91,7 +91,7 @@ export default function PatentSection() {
               <i className="fas fa-link text-3xl text-primary"></i>
             </div>
             <h3 className="text-lg font-semibold mb-2">U.S. Patent 10,999,276</h3>
-            <p className="text-neutral-600 mb-3">DsTC: Dynamic secure Transaction Chains</p>
+            <p className="text-neutral-600 mb-3">DsTC: Decentralized secure true digital ID for communications</p>
             <span className="text-xs bg-accent/20 text-accent px-3 py-1 rounded-full">Court-Ready Compliance</span>
           </div>
           
