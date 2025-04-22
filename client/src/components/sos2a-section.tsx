@@ -28,7 +28,7 @@ export default function Sos2aSection() {
     <section id="sos2a" className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold font-heading text-primary mb-4">SMB Security Analysis (SOS2A)</h2>
+          <h2 className="text-3xl font-bold font-heading text-primary mb-4">SMB Organizational and System Security Analysis (SOS2A)</h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">Our comprehensive security analysis tool provides real-time audit, compliance proof, and threat prevention for small and medium businesses.</p>
         </div>
 

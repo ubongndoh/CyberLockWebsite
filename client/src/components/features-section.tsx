@@ -8,7 +8,7 @@ export default function FeaturesSection() {
   const features: Feature[] = [
     {
       icon: "fas fa-shield-alt",
-      title: "SMB Security Analysis (SOS2A)",
+      title: "SMB Organizational and System Security Analysis (SOS2A)",
       description: "AI agent that automates real-time audit, compliance proof (ISO/SOC) and threat prevention—turning all activity into auditable evidence."
     },
     {

@@ -16,7 +16,7 @@ interface RoadmapItem {
 export default function RoadmapSection() {
   const roadmapItems: RoadmapItem[] = [
     {
-      name: "SOS2A Security Assessment",
+      name: "SOS2A Organizational and System Security Assessment",
       description: "Comprehensive security assessment tool with RASBITA scoring methodology",
       status: "current",
       timeline: "Available Now",
