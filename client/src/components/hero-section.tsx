@@ -2,7 +2,7 @@ import { Link } from "wouter";
 
 export default function HeroSection() {
   return (
-    <section className="bg-gradient-to-r from-primary to-blue-500 text-white py-16 md:py-24">
+    <section className="bg-gradient-to-r from-chart-4 to-blue-600 text-white py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
@@ -31,7 +31,7 @@ export default function HeroSection() {
               </div>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-chart-4/30 rounded-full flex items-center justify-center">
                     <i className="fas fa-shield-alt text-white"></i>
                   </div>
                   <div>
@@ -40,7 +40,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-chart-4/30 rounded-full flex items-center justify-center">
                     <i className="fas fa-file-alt text-white"></i>
                   </div>
                   <div>
@@ -49,7 +49,7 @@ export default function HeroSection() {
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-chart-4/30 rounded-full flex items-center justify-center">
                     <i className="fas fa-layer-group text-white"></i>
                   </div>
                   <div>
@@ -59,7 +59,7 @@ export default function HeroSection() {
                 </div>
               </div>
               <div className="mt-6 text-center">
-                <Link href="/sos2a-tool" className="inline-block bg-white text-primary hover:bg-neutral-100 py-2 px-4 rounded-md transition duration-150 ease-in-out font-medium">
+                <Link href="/sos2a-tool" className="inline-block bg-white text-chart-4 hover:bg-neutral-100 py-2 px-4 rounded-md transition duration-150 ease-in-out font-medium">
                   Start Free Assessment
                 </Link>
               </div>

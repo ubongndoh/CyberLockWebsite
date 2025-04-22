@@ -43,7 +43,7 @@ export default function Sos2aTool() {
     <div className="bg-neutral-50 min-h-screen py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-bold font-heading text-primary mb-4">SMB Security Analysis (SOS2A) Tool</h1>
+          <h1 className="text-3xl font-bold font-heading text-chart-4 mb-4">SMB Security Analysis (SOS2A) Tool</h1>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">Complete the assessment process to receive a comprehensive security analysis for your business.</p>
         </div>
 
