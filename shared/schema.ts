@@ -74,8 +74,24 @@ export const insertAssessmentSchema = z.object({
   recommendations: z.any().optional(),
 });
 
+export const insertEarlyAccessSubmissionSchema = z.object({
+  fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  company: z.string().min(2, { message: "Company name must be at least 2 characters." }),
+  phone: z.string().min(10, { message: "Please enter a valid phone number." }),
+  companySize: z.string(),
+  industry: z.string(),
+  interestedIn: z.array(z.string()).min(1, { message: "Please select at least one product." }),
+  investmentLevel: z.string(),
+  additionalInfo: z.string().optional(),
+  status: z.string().optional()
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
 export type InsertAssessment = z.infer<typeof insertAssessmentSchema>;
 export type Assessment = typeof assessments.$inferSelect;
+
+export type InsertEarlyAccessSubmission = z.infer<typeof insertEarlyAccessSubmissionSchema>;
+export type EarlyAccessSubmission = typeof earlyAccessSubmissions.$inferSelect;

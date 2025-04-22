@@ -51,11 +51,19 @@ export default function EarlyAccess() {
     setIsSubmitting(true);
     
     try {
-      // Here you would typically send this data to your API endpoint
-      console.log("Form data:", data);
+      const response = await fetch('/api/early-access/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
       
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const result = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to submit application');
+      }
       
       setSubmitted(true);
       toast({
@@ -64,9 +72,10 @@ export default function EarlyAccess() {
         variant: "default",
       });
     } catch (error) {
+      console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong.",
-        description: "Please try again later.",
+        description: error instanceof Error ? error.message : "Please try again later.",
         variant: "destructive",
       });
     } finally {

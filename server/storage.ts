@@ -1,4 +1,4 @@
-import { users, type User, type InsertUser, type Assessment, type InsertAssessment, assessments } from "@shared/schema";
+import { users, type User, type InsertUser, type Assessment, type InsertAssessment, assessments, earlyAccessSubmissions, type InsertEarlyAccessSubmission, type EarlyAccessSubmission } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -15,6 +15,12 @@ export interface IStorage {
   createAssessment(assessment: InsertAssessment): Promise<Assessment>;
   updateAssessment(id: number, assessment: InsertAssessment): Promise<Assessment | undefined>;
   deleteAssessment(id: number): Promise<boolean>;
+  
+  // Early Access operations
+  getAllEarlyAccessSubmissions(): Promise<EarlyAccessSubmission[]>;
+  getEarlyAccessSubmission(id: number): Promise<EarlyAccessSubmission | undefined>;
+  createEarlyAccessSubmission(submission: InsertEarlyAccessSubmission): Promise<EarlyAccessSubmission>;
+  updateEarlyAccessSubmissionStatus(id: number, status: string): Promise<EarlyAccessSubmission | undefined>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -154,6 +160,52 @@ export class DatabaseStorage implements IStorage {
     
     // Ensure the score is between 0 and 100
     return Math.max(0, Math.min(score, 100));
+  }
+  
+  // Early Access operations
+  async getAllEarlyAccessSubmissions(): Promise<EarlyAccessSubmission[]> {
+    return await db.select().from(earlyAccessSubmissions);
+  }
+
+  async getEarlyAccessSubmission(id: number): Promise<EarlyAccessSubmission | undefined> {
+    const [submission] = await db.select().from(earlyAccessSubmissions).where(eq(earlyAccessSubmissions.id, id));
+    return submission;
+  }
+
+  async createEarlyAccessSubmission(submission: InsertEarlyAccessSubmission): Promise<EarlyAccessSubmission> {
+    const [newSubmission] = await db
+      .insert(earlyAccessSubmissions)
+      .values({
+        fullName: submission.fullName,
+        email: submission.email,
+        company: submission.company,
+        phone: submission.phone,
+        companySize: submission.companySize,
+        industry: submission.industry,
+        interestedIn: submission.interestedIn,
+        investmentLevel: submission.investmentLevel,
+        additionalInfo: submission.additionalInfo || null,
+        status: submission.status || "pending",
+        createdAt: new Date()
+      })
+      .returning();
+    
+    return newSubmission;
+  }
+
+  async updateEarlyAccessSubmissionStatus(id: number, status: string): Promise<EarlyAccessSubmission | undefined> {
+    const existingSubmission = await this.getEarlyAccessSubmission(id);
+    if (!existingSubmission) {
+      return undefined;
+    }
+    
+    const [submission] = await db
+      .update(earlyAccessSubmissions)
+      .set({ status })
+      .where(eq(earlyAccessSubmissions.id, id))
+      .returning();
+    
+    return submission;
   }
 }
 

@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertAssessmentSchema } from "@shared/schema";
+import { insertAssessmentSchema, insertEarlyAccessSubmissionSchema } from "@shared/schema";
 import { ZodError } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -133,6 +133,68 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error logging in:", error);
       res.status(500).json({ error: "Failed to login" });
+    }
+  });
+  
+  // Early Access routes
+  app.post("/api/early-access/submit", async (req, res) => {
+    try {
+      const validatedData = insertEarlyAccessSubmissionSchema.parse(req.body);
+      const submission = await storage.createEarlyAccessSubmission(validatedData);
+      res.status(201).json({ 
+        success: true, 
+        message: "Your early access application has been submitted successfully", 
+        submissionId: submission.id 
+      });
+    } catch (error) {
+      if (error instanceof ZodError) {
+        res.status(400).json({ error: "Validation error", details: error.errors });
+      } else {
+        console.error("Error submitting early access application:", error);
+        res.status(500).json({ error: "Failed to submit early access application" });
+      }
+    }
+  });
+  
+  app.get("/api/early-access/submissions", async (req, res) => {
+    try {
+      const submissions = await storage.getAllEarlyAccessSubmissions();
+      res.json(submissions);
+    } catch (error) {
+      console.error("Error fetching early access submissions:", error);
+      res.status(500).json({ error: "Failed to fetch early access submissions" });
+    }
+  });
+  
+  app.get("/api/early-access/submissions/:id", async (req, res) => {
+    try {
+      const submission = await storage.getEarlyAccessSubmission(parseInt(req.params.id));
+      if (!submission) {
+        return res.status(404).json({ error: "Submission not found" });
+      }
+      res.json(submission);
+    } catch (error) {
+      console.error("Error fetching early access submission:", error);
+      res.status(500).json({ error: "Failed to fetch early access submission" });
+    }
+  });
+  
+  app.patch("/api/early-access/submissions/:id/status", async (req, res) => {
+    try {
+      const { status } = req.body;
+      if (!status) {
+        return res.status(400).json({ error: "Status is required" });
+      }
+      
+      const submission = await storage.updateEarlyAccessSubmissionStatus(parseInt(req.params.id), status);
+      if (!submission) {
+        return res.status(404).json({ error: "Submission not found" });
+      }
+      
+      res.json(submission);
+    } catch (error) {
+      console.error("Error updating early access submission status:", error);
+      res.status(500).json({ error: "Failed to update early access submission status" });
     }
   });
   
