@@ -144,22 +144,22 @@ export default function RoadmapSection() {
     },
     {
       name: "Secure AI Language Augmentation",
-      description: "Quantum-encrypted AI tools with privacy guarantees",
+      description: "Revolutionary approach integrating ethnic languages into core AI processing",
       status: "planned",
       timeline: "Q4 2026",
       features: [
-        "Private AI processing",
-        "Zero-knowledge prompt engineering",
-        "Quantum-resistant model security",
-        "Compliance-ready implementation"
+        "Elevating ethnic languages from translation-only status to foundational AI model components",
+        "AFA oracle of knowledge with the unified alphabet (ΣU) system",
+        "Keyless encryption resistant to quantum computing threats",
+        "Authentic cultural and linguistic nuance preservation in AI interactions"
       ],
       investmentOptions: [
         {
           name: "AI Innovation Partner",
           benefits: [
-            "Exclusive model access",
-            "Custom fine-tuning",
-            "Security-focused integrations"
+            "Revolutionary access to first-of-its-kind ethnic language AI technology",
+            "Participate in reshaping how AI processes non-English language structures",
+            "Early access to secure, quantum-resistant language processing capabilities"
           ],
           price: "Custom"
         }

@@ -4,10 +4,10 @@ export default function PatentSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-block mb-4 px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-            Protected by U.S. Patents
+            Protected by U.S. Patents & Patent-Pending Technologies
           </div>
-          <h2 className="text-3xl font-bold font-heading text-primary mb-4">Triple-Patented Security Technology</h2>
-          <p className="text-lg text-neutral-600 max-w-3xl mx-auto">CyberLockX's security is built on three groundbreaking patents that provide unbreakable protection, court-ready compliance, and self-learning threat prevention.</p>
+          <h2 className="text-3xl font-bold font-heading text-primary mb-4">Advanced Patent-Protected Security</h2>
+          <p className="text-lg text-neutral-600 max-w-3xl mx-auto">CyberLockX's security is built on three granted patents plus patent-pending technology for low-resource language AI, providing unbreakable protection, court-ready compliance, and self-learning threat prevention.</p>
         </div>
         
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
@@ -64,7 +64,7 @@ export default function PatentSection() {
                           <li>Cloud (AWS/Azure/GCP)</li>
                           <li>Secure Meet (E2E-encrypted)</li>
                           <li>Payments (PCI DSS-ready)</li>
-                          <li>AI Augmentation</li>
+                          <li>AI Language Augmentation (Ethnic language integration)</li>
                         </ul>
                       </li>
                     </ul>
@@ -76,7 +76,7 @@ export default function PatentSection() {
           </div>
         </div>
         
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center">
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-4">
               <i className="fas fa-shield-alt text-3xl text-primary"></i>
@@ -102,6 +102,15 @@ export default function PatentSection() {
             <h3 className="text-lg font-semibold mb-2">U.S. Patent 11,367,065</h3>
             <p className="text-neutral-600 mb-3">DLSeT: Deep Learning Security Threat Detection</p>
             <span className="text-xs bg-accent/20 text-accent px-3 py-1 rounded-full">Self-Learning Threat Prevention</span>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center text-center border-2 border-dashed border-secondary">
+            <div className="w-20 h-20 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+              <i className="fas fa-language text-3xl text-secondary"></i>
+            </div>
+            <h3 className="text-lg font-semibold mb-2">Patent-Pending</h3>
+            <p className="text-neutral-600 mb-3">AFA: Low-Resource Language AI System</p>
+            <span className="text-xs bg-secondary/20 text-secondary px-3 py-1 rounded-full">Revolutionary Ethnic Language Integration</span>
           </div>
         </div>
       </div>

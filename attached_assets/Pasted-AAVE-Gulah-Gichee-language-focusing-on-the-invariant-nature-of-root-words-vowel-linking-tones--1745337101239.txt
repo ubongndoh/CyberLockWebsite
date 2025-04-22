@@ -1,0 +1,37 @@
+AAVE(Gulah/Gichee) language, focusing on the invariant nature of root words, vowel linking, tones,
+and their semantic enhancement through affixation. It introduces a unified alphabet (ΣU) for Igbo,
+Yoruba, Hausa and African American Vernacular English (AAVE). Nonethnic language models, often
+based on subject-verb-object structures typical of English, fall short in accurately representing Igbo,
+Yoruba, Hausa, and AAVE. Hence, we propose a unified alphabet and deep learning strategy for lowresource
+languages using neural networks. Here, vowels act as activators to capture the phonological
+and morphological patterns of the language. The paper introduces a method that borrows from the
+AFA oracle of knowledge equivalent to the Turing machine. This model will also leverage a shift-left
+approach or security-by-design principles to ensure robust performance and secure data handling. The
+need for autonomy makes it relevant to incorporate keyless encryption methods, which are resilient
+against quantum computing threats, guaranteeing the security and privacy of data, transactions, and
+communications within the model. Machine learning (supervised, unsupervised, and a mix of the
+two), reinforced by human feedback of a set of language strings over a unified alphabet, comprised
+the algorithm: Including a dynamic AFA matrix that can represent any conceivable word or phrase in
+Igbo, Yoruba, Hausa and AAVE, significantly enhancing AI tasks such as translation, text generation,
+and speech recognition.
+Keywords Cybersecurity · Keyless Cryptography · Artificial Intelligence · Language Modeling · Data Security ·
+Post-Quantum Cryptography · Natural Language Processing · Machine Learning.
+1 Introduction
+In recent years, research on the Large Language Model (LLM) has catalyzed significant innovations in artificial
+intelligence, particularly within the realms of Machine Translation (MT), Natural Language Processing (NLP) and
+Retrieval-Augmented Generation (RAG) [1, 2]. These advancements have permeated computational linguistics at
+large. However, the application of LLMs in low-resource languages presents formidable challenges. The necessity for
+extensive data sources renders it nearly insurmountable for infrequently used languages to attain the breakthroughs
+observed in high-resource languages. Challenges such as hallucination, back translation issues, and the absence of
+cultural nuances and authenticity have led to inconsistent translation results in low-resource language contexts. Certain
+Generative Pre-trained Transformers (GPT) and Multilingual Language Models (MLM) have attempted to address
+these issues through an expansive machine translation effort. The current LLMs are rife with problems in natural
+language processing: Especially, back translation, hallucination, and poor semantic reason functionality. Above all,
+the lack of cultural nuances limits ethnic Machine Translation (MT), GPT prompts, responses, and summarization. In
+addition, NLP is only orthographic with respect to low-used ethnic languages. In order to fix these challenges, remove
+the representation gap for low-resource languages in applications of AI, pave the way for more inclusive and culturally
+sensitive applications. We propose the AFA oracle of knowledge; the principle of 16, the design of a unified alphabet,
+the integration of phonemes, morphemes, graphemes, a comprehensive million-word dictionary, and quantum resistance
+cryptography into the development of a low-resource language model. The objective is to bring more dimension to the
+NLP parsing process, creating the much needed foundation model for low-resource languages. We extend an invitation
+for collaboration to harness the rich linguistic diversity of ethnic languages, aiming to contribute to the advancement of
