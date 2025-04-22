@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import cyberlockxLogo from "../assets/cyberlockx-logo.png";
 
 export default function HeroSection() {
   return (
@@ -6,17 +7,23 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center">
           <div className="md:w-1/2 md:pr-8 mb-8 md:mb-0">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-tight mb-4">
+            <div className="flex items-center mb-6">
+              <img src={cyberlockxLogo} alt="CyberLockX Logo" className="h-20 w-auto mr-4" />
+              <div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-heading leading-tight">
+                  CyberLockX
+                </h1>
+                <p className="text-xl text-neutral-100">Securing every click!</p>
+              </div>
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold font-heading leading-tight mb-4">
               The Ultimate Secure Business Application Hub
-            </h1>
-            <p className="text-xl md:text-2xl mb-6 text-neutral-100">
-              Securing every click!
-            </p>
+            </h2>
             <p className="mb-8 text-neutral-200">
               The only SMB platform that eliminates threats, automates compliance, and unifies business apps—with patented quantum-safe encryption and cell-level data protection at its core.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#demo" className="bg-secondary hover:bg-orange-600 text-white py-3 px-6 rounded-md shadow-md transition duration-150 ease-in-out text-center font-medium">
+              <a href="#demo" className="bg-secondary hover:bg-green-600 text-white py-3 px-6 rounded-md shadow-md transition duration-150 ease-in-out text-center font-medium">
                 Watch Demo
               </a>
               <a href="#pricing" className="bg-transparent hover:bg-white/10 text-white border border-white py-3 px-6 rounded-md transition duration-150 ease-in-out text-center font-medium">
