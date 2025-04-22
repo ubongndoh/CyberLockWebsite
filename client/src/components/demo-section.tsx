@@ -13,7 +13,7 @@ export default function DemoSection() {
               <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-blue-600 transition-colors">
                 <i className="fas fa-play text-white text-2xl"></i>
               </div>
-              <p className="text-neutral-600 font-medium">Watch Demo: Phishing Protection in Action</p>
+              <p className="text-neutral-600 font-medium">Watch Demo: Malware Protection in Action</p>
             </div>
           </div>
           
@@ -21,8 +21,8 @@ export default function DemoSection() {
             <h3 className="text-xl font-semibold font-heading mb-4 text-primary">Enhanced Security Demo</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="bg-white p-4 rounded-lg shadow border border-neutral-200">
-                <h4 className="font-medium text-lg mb-2">Scene 1: Phishing Prevention</h4>
-                <p className="text-neutral-600 text-sm">See how our AFAAI browser blocks sophisticated phishing attempts while SOS²A logs the attempt for PCI DSS compliance.</p>
+                <h4 className="font-medium text-lg mb-2">Scene 1: Malware Prevention</h4>
+                <p className="text-neutral-600 text-sm">See how our AFAAI browser blocks sophisticated malware threats while SOS²A logs the attempt for PCI DSS compliance.</p>
               </div>
               
               <div className="bg-white p-4 rounded-lg shadow border border-neutral-200">

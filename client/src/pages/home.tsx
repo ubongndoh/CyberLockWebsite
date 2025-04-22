@@ -23,6 +23,7 @@ export default function Home() {
       <RoadmapSection />
       <CompetitiveComparison />
       <PricingSection />
+      <VideoDemoSection />
       <DemoSection />
       <ContactSection />
     </div>
