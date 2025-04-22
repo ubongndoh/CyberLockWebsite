@@ -14,7 +14,7 @@ export default function Header() {
   };
 
   const isHomePage = location === "/";
-  const getHashLink = (hash: string) => isHomePage ? `#${hash}` : `/${hash}`;
+  const getHashLink = (hash: string) => isHomePage ? `#${hash}` : `/#${hash}`;
 
   return (
     <nav className="bg-primary shadow-md sticky top-0 z-50">
@@ -45,7 +45,7 @@ export default function Header() {
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:items-center">
-            <Link href="/sos2a-tool" className="bg-secondary hover:bg-orange-600 text-white py-2 px-4 rounded-md shadow-sm transition duration-150 ease-in-out">
+            <Link href="/sos2a-tool" className="bg-secondary hover:bg-green-600 text-white py-2 px-4 rounded-md shadow-sm transition duration-150 ease-in-out">
               Get Started
             </Link>
           </div>
@@ -79,7 +79,7 @@ export default function Header() {
           <Link href={getHashLink("pricing")} onClick={closeMobileMenu} className="text-neutral-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">
             Pricing
           </Link>
-          <Link href="/sos2a-tool" onClick={closeMobileMenu} className="bg-secondary text-white block text-center mt-3 px-3 py-2 rounded-md text-base font-medium">
+          <Link href="/sos2a-tool" onClick={closeMobileMenu} className="bg-secondary hover:bg-green-600 text-white block text-center mt-3 px-3 py-2 rounded-md text-base font-medium transition duration-150 ease-in-out">
             Get Started
           </Link>
         </div>

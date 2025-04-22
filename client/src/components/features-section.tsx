@@ -58,7 +58,7 @@ export default function FeaturesSection() {
               <div className="p-6">
                 <h3 className="text-xl font-semibold font-heading mb-3 text-primary">{feature.title}</h3>
                 <p className="text-neutral-600 mb-4">{feature.description}</p>
-                <a href="#" className="text-secondary hover:text-orange-700 font-medium inline-flex items-center">
+                <a href="#" className="text-secondary hover:text-green-600 font-medium inline-flex items-center">
                   Learn more <i className="fas fa-arrow-right ml-2"></i>
                 </a>
               </div>
