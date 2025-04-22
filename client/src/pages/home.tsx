@@ -6,6 +6,7 @@ import PatentSection from "@/components/patent-section";
 import CompetitiveComparison from "@/components/competitive-comparison";
 import PricingSection from "@/components/pricing-section";
 import DemoSection from "@/components/demo-section";
+import VideoDemoSection from "@/components/video-demo-section";
 import ContactSection from "@/components/contact-section";
 import RoadmapSection from "@/components/roadmap-section";
 import AfaaiSection from "@/components/afaai-section";
