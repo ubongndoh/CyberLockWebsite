@@ -1,4 +1,6 @@
 import { users, type User, type InsertUser, type Assessment, type InsertAssessment, assessments } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // Interface for storage operations
 export interface IStorage {
@@ -15,73 +17,71 @@ export interface IStorage {
   deleteAssessment(id: number): Promise<boolean>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private assessments: Map<number, Assessment>;
-  private userId: number;
-  private assessmentId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.assessments = new Map();
-    this.userId = 1;
-    this.assessmentId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   // User operations
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.userId++;
-    const createdAt = new Date().toISOString();
-    const user: User = { 
-      ...insertUser, 
-      id,
-      createdAt: new Date(createdAt)
-    };
-    this.users.set(id, user);
+    const [user] = await db
+      .insert(users)
+      .values({
+        username: insertUser.username,
+        password: insertUser.password,
+        fullName: insertUser.fullName ?? null,
+        email: insertUser.email ?? null,
+        companyName: insertUser.companyName ?? null,
+        role: insertUser.role ?? "user",
+      })
+      .returning();
     return user;
   }
 
   // Assessment operations
   async getAllAssessments(): Promise<Assessment[]> {
-    return Array.from(this.assessments.values());
+    return await db.select().from(assessments);
   }
 
   async getAssessment(id: number): Promise<Assessment | undefined> {
-    return this.assessments.get(id);
+    const [assessment] = await db.select().from(assessments).where(eq(assessments.id, id));
+    return assessment;
   }
 
   async createAssessment(insertAssessment: InsertAssessment): Promise<Assessment> {
-    const id = this.assessmentId++;
-    const now = new Date();
-    
-    // Calculate a security score based on security measures
+    // Calculate security score
     const securityScore = this.calculateSecurityScore(insertAssessment);
     
-    const assessment: Assessment = {
-      ...insertAssessment,
-      id,
-      securityScore,
-      createdAt: now,
-      updatedAt: now
-    };
+    const [assessment] = await db
+      .insert(assessments)
+      .values({
+        userId: insertAssessment.userId ?? null,
+        businessName: insertAssessment.businessName,
+        industry: insertAssessment.industry,
+        employeeCount: insertAssessment.employeeCount,
+        securityMeasures: insertAssessment.securityMeasures,
+        primaryConcerns: insertAssessment.primaryConcerns,
+        contactInfo: insertAssessment.contactInfo,
+        reportType: insertAssessment.reportType,
+        securityScore,
+        matrixData: insertAssessment.matrixData ?? null,
+        findings: insertAssessment.findings ?? null,
+        recommendations: insertAssessment.recommendations ?? null
+      })
+      .returning();
     
-    this.assessments.set(id, assessment);
     return assessment;
   }
 
   async updateAssessment(id: number, updatedAssessment: InsertAssessment): Promise<Assessment | undefined> {
-    const existingAssessment = this.assessments.get(id);
-    
+    // Check if assessment exists
+    const existingAssessment = await this.getAssessment(id);
     if (!existingAssessment) {
       return undefined;
     }
@@ -89,24 +89,35 @@ export class MemStorage implements IStorage {
     // Calculate security score
     const securityScore = this.calculateSecurityScore(updatedAssessment);
     
-    const assessment: Assessment = {
-      ...existingAssessment,
-      ...updatedAssessment,
-      id,
-      securityScore,
-      updatedAt: new Date()
-    };
+    const [assessment] = await db
+      .update(assessments)
+      .set({
+        userId: updatedAssessment.userId ?? existingAssessment.userId,
+        businessName: updatedAssessment.businessName,
+        industry: updatedAssessment.industry,
+        employeeCount: updatedAssessment.employeeCount,
+        securityMeasures: updatedAssessment.securityMeasures,
+        primaryConcerns: updatedAssessment.primaryConcerns,
+        contactInfo: updatedAssessment.contactInfo,
+        reportType: updatedAssessment.reportType,
+        securityScore,
+        matrixData: updatedAssessment.matrixData ?? existingAssessment.matrixData,
+        findings: updatedAssessment.findings ?? existingAssessment.findings,
+        recommendations: updatedAssessment.recommendations ?? existingAssessment.recommendations,
+        updatedAt: new Date()
+      })
+      .where(eq(assessments.id, id))
+      .returning();
     
-    this.assessments.set(id, assessment);
     return assessment;
   }
 
   async deleteAssessment(id: number): Promise<boolean> {
-    if (!this.assessments.has(id)) {
-      return false;
-    }
+    const result = await db
+      .delete(assessments)
+      .where(eq(assessments.id, id));
     
-    return this.assessments.delete(id);
+    return result.count > 0;
   }
   
   private calculateSecurityScore(assessment: InsertAssessment): number {
@@ -141,4 +152,4 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
