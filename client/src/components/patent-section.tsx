@@ -54,6 +54,23 @@ export default function PatentSection() {
                   </td>
                   <td className="py-4 px-6 text-neutral-700">Static AI models (Cynet, CrowdStrike)</td>
                 </tr>
+                <tr className="bg-secondary/10">
+                  <td className="py-4 px-6 font-medium text-primary">Integrated Apps</td>
+                  <td className="py-4 px-6">
+                    <ul className="list-disc list-inside text-neutral-700">
+                      <li>ECSMID + DsTC: Unified quantum-safe surface for:
+                        <ul className="list-disc list-inside ml-4">
+                          <li>Google Docs/Sheets (cell-level encryption)</li>
+                          <li>Cloud (AWS/Azure/GCP)</li>
+                          <li>Secure Meet (E2E-encrypted)</li>
+                          <li>Payments (PCI DSS-ready)</li>
+                          <li>AI Augmentation</li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </td>
+                  <td className="py-4 px-6 font-medium text-red-600">Competitors secure endpoints or apps—never both</td>
+                </tr>
               </tbody>
             </table>
           </div>
