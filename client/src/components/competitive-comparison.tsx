@@ -29,7 +29,7 @@ export default function CompetitiveComparison() {
     },
     {
       feature: "Encryption",
-      cyberLockX: { value: "ECSMID + DataShieldAI (PQC) (Patented)", positive: true },
+      cyberLockX: { value: "ECSMID (End-to-end IoT crypto) + DataShieldAI (PQC) (Patented)", positive: true },
       guardz: { value: "None", positive: false },
       crowdStrike: { value: "None", positive: false },
       cynet: { value: "Basic TLS", positive: false }

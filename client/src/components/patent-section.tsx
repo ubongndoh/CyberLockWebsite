@@ -29,7 +29,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6 font-medium">AFAAI Browser</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
-                      <li>ECSMID: Quantum-proof encryption (Claim 2)</li>
+                      <li>ECSMID: End-point to end-point encryption system (Claim 2)</li>
                       <li>DLSeT: Self-learning threat detection (Claim 5)</li>
                     </ul>
                   </td>
@@ -58,7 +58,7 @@ export default function PatentSection() {
                   <td className="py-4 px-6 font-medium text-primary">Integrated Apps</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
-                      <li>ECSMID + DsTC (Decentralized secure true digital ID): Unified quantum-safe surface for:
+                      <li>ECSMID (End-point to end-point cryptographic system) + DsTC (Decentralized secure true digital ID): Unified quantum-safe surface for:
                         <ul className="list-disc list-inside ml-4">
                           <li>Google Docs/Sheets (cell-level encryption)</li>
                           <li>Cloud (AWS/Azure/GCP)</li>
@@ -82,7 +82,7 @@ export default function PatentSection() {
               <i className="fas fa-shield-alt text-3xl text-primary"></i>
             </div>
             <h3 className="text-lg font-semibold mb-2">U.S. Patent 10,911,217</h3>
-            <p className="text-neutral-600 mb-3">ECSMID: Enhanced Cryptographic Secure Mechanism for ID</p>
+            <p className="text-neutral-600 mb-3">ECSMID: End-point to end-point cryptographic system for mobile and IoT Devices</p>
             <span className="text-xs bg-accent/20 text-accent px-3 py-1 rounded-full">Quantum-Resistant Encryption</span>
           </div>
           

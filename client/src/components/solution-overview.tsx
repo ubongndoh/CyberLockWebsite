@@ -22,7 +22,7 @@ export default function SolutionOverview() {
                   <td className="py-4 px-6 font-medium">AFAAI Browser</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
-                      <li>U.S. Patent 10,911,217 (ECSMID) + DataShieldAI = Quantum-proof OWASP immunity</li>
+                      <li>U.S. Patent 10,911,217 (ECSMID: End-point to end-point cryptographic system) + DataShieldAI = Quantum-proof OWASP immunity</li>
                       <li>Encrypts all data (cache/RAM/transit)</li>
                     </ul>
                   </td>
@@ -86,7 +86,7 @@ export default function SolutionOverview() {
             <ul className="space-y-4">
               <li>
                 <span className="font-semibold text-blue-500">Patented Immunity:</span>
-                <p className="text-neutral-700">ECSMID's quantum-resistant key healing (Claim 2) + DataShieldAI's granular encryption = Unhackable by design, even at the cell level.</p>
+                <p className="text-neutral-700">ECSMID's end-to-end cryptographic system for mobile and IoT devices (Claim 2) + DataShieldAI's granular encryption = Unhackable by design, even at the cell level.</p>
               </li>
               <li>
                 <span className="font-semibold text-blue-500">Compliance Autopilot:</span>
