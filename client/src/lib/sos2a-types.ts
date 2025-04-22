@@ -1,4 +1,4 @@
-// Types for the SOS2A assessment tool
+// Types for the SOS²A assessment tool
 export interface ContactInfo {
   name: string;
   email: string;
