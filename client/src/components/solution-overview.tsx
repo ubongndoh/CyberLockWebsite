@@ -19,7 +19,7 @@ export default function SolutionOverview() {
               </thead>
               <tbody className="divide-y divide-neutral-200">
                 <tr>
-                  <td className="py-4 px-6 font-medium">AFA Browser</td>
+                  <td className="py-4 px-6 font-medium">AFAAI Browser</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
                       <li>U.S. Patent 10,911,217 (ECSMID) + DataShieldAI = Quantum-proof OWASP immunity</li>

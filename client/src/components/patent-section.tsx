@@ -26,7 +26,7 @@ export default function PatentSection() {
               </thead>
               <tbody className="divide-y divide-neutral-200">
                 <tr>
-                  <td className="py-4 px-6 font-medium">AFA Browser</td>
+                  <td className="py-4 px-6 font-medium">AFAAI Browser</td>
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-neutral-700">
                       <li>ECSMID: Quantum-proof encryption (Claim 2)</li>

@@ -43,7 +43,7 @@ export default function CompetitiveComparison() {
     },
     {
       feature: "Threat Prevention",
-      cyberLockX: { value: "OWASP-immune AFA browser + hybrid SOC", positive: true },
+      cyberLockX: { value: "OWASP-immune AFAAI browser + hybrid SOC", positive: true },
       guardz: { value: "MSP tools", positive: true },
       crowdStrike: { value: "EDR", positive: true },
       cynet: { value: "XDR", positive: true }
