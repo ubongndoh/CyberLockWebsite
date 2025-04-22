@@ -7,14 +7,15 @@ export default function AfaaiSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-block mb-4 px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-            Patent-Pending Technology
+            Triple-Patented Core Technology
           </div>
           <h2 className="text-3xl font-bold font-heading text-primary mb-4">
-            AFAAI: The Core of Our Security Hub
+            AFAAI Browser: The Heart of Our Security Revolution
           </h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-            Our patented AFAAI (Authentic Functional Artificial Augmented Intelligence) technology powers the 
-            security infrastructure of the entire CyberLockX application ecosystem.
+            Our revolutionary AFAAI (Authentic Functional Artificial Augmented Intelligence) Browser technology forms the 
+            central nervous system of the entire CyberLockX security ecosystem, fundamentally transforming how SMB applications 
+            are protected in real-time.
           </p>
         </div>
 
@@ -74,9 +75,9 @@ export default function AfaaiSection() {
               <h3 className="text-xl font-bold text-primary mb-6">The AFAAI Innovation</h3>
               <div className="space-y-4">
                 <div className="bg-neutral-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-primary mb-2">Unified Alphabet System (ΣU)</h4>
+                  <h4 className="font-semibold text-primary mb-2">Unified Alphabet System (Σ<sub>U</sub>)</h4>
                   <p className="text-sm text-neutral-600">
-                    Our proprietary ΣU system enables AFAAI to process information across languages with unprecedented accuracy,
+                    Our proprietary Σ<sub>U</sub> system enables AFAAI to process information across languages with unprecedented accuracy,
                     creating a more secure environment for global businesses.
                   </p>
                 </div>
@@ -111,12 +112,34 @@ export default function AfaaiSection() {
           </div>
         </div>
         
-        <div className="mt-16">
-          <h3 className="text-2xl font-bold text-primary text-center mb-6">Experience AFAAI in Action</h3>
-          <p className="text-lg text-neutral-600 text-center max-w-3xl mx-auto mb-8">
-            See how AFAAI powers and protects our secure SMB application hub
-          </p>
-          <AfaaiBrowser />
+        <div className="mt-16 relative">
+          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+            <div className="inline-flex items-center px-4 py-2 bg-primary text-white rounded-full text-sm font-bold shadow-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              THE CORE TECHNOLOGY
+            </div>
+          </div>
+          
+          <div className="bg-gradient-to-b from-primary/30 to-primary/5 rounded-3xl pt-16 pb-12 px-6 sm:px-12">
+            <h3 className="text-3xl font-bold text-primary text-center mb-6">The AFAAI Browser Engine</h3>
+            <p className="text-lg text-neutral-700 text-center max-w-3xl mx-auto mb-8">
+              At the heart of CyberLockX is our revolutionary AFAAI Browser - the security control center that
+              monitors, protects, and integrates all secure applications in real-time with proprietary
+              language-driven defense mechanisms.
+            </p>
+            <AfaaiBrowser />
+            
+            <div className="mt-8 text-center">
+              <Link href="/early-access" className="inline-flex items-center px-6 py-3 bg-secondary hover:bg-secondary/90 text-white rounded-lg font-medium shadow-md transition-all hover:shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
+                </svg>
+                Get Early Access to AFAAI Browser Technology
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </section>

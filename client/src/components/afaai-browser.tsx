@@ -40,8 +40,15 @@ export default function AfaaiBrowser() {
   };
 
   return (
-    <div className="mt-12 relative">
-      <div className="bg-neutral-800 rounded-t-xl overflow-hidden shadow-lg border border-neutral-700">
+    <div className="relative">
+      {/* Central "heart" badge */}
+      <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg border-2 border-white">
+          HEART OF CYBERLOCKX
+        </div>
+      </div>
+    
+      <div className="bg-neutral-800 rounded-xl overflow-hidden shadow-2xl border-2 border-primary/30">
         {/* Browser chrome */}
         <div className="bg-neutral-900 px-4 py-3 flex items-center">
           <div className="flex space-x-2">
@@ -179,7 +186,7 @@ export default function AfaaiBrowser() {
                 </div>
                 <p className="text-neutral-300 text-sm">
                   Our AFAAI language engine is actively monitoring and protecting this application, ensuring security 
-                  across all communications including low-resource languages through our unified alphabet system (ΣU).
+                  across all communications including low-resource languages through our unified alphabet system (Σ<sub>U</sub>).
                 </p>
               </div>
             </div>
