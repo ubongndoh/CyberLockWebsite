@@ -32,16 +32,16 @@ export default function VideoDemoSection() {
               controls
               poster="/assets/video-poster.svg"
             >
-              <source src="/assets/DatashieldAI2025.mp4" type="video/mp4" />
+              <source src="/assets/2025DatasiAiFINAL_Update_2025.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
           
           <div className="p-6">
-            <h3 className="text-xl font-semibold text-primary mb-2">DataShieldAI Demo 2025</h3>
+            <h3 className="text-xl font-semibold text-primary mb-2">DataShieldAI 2025 - Updated</h3>
             <p className="text-neutral-600 mb-4">
-              This video demonstrates how our patent-protected technology prevents security breaches in real-time while 
-              maintaining full encryption throughout the data lifecycle.
+              This updated demonstration showcases our streamlined technology flow without unnecessary branding, 
+              highlighting how our solutions prevent security breaches in real-time with end-to-end encryption.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
