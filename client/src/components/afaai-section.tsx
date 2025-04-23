@@ -83,7 +83,7 @@ export default function AfaaiSection() {
                 </div>
                 
                 <div className="bg-neutral-50 p-4 rounded-lg">
-                  <h4 className="font-semibold text-primary mb-2">Low-Resource Language Integration</h4>
+                  <h4 className="font-semibold text-primary mb-2">Low-Resource Language Model Integration</h4>
                   <p className="text-sm text-neutral-600">
                     AFAAI elevates ethnic languages from translation-only status to core AI components,
                     enabling more comprehensive security monitoring across global communications.
