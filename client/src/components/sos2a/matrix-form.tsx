@@ -298,11 +298,20 @@ export default function MatrixForm({
             <i className="fas fa-info-circle text-xl"></i>
           </div>
           <div>
-            <h4 className="font-medium text-blue-700">Interview Guidance</h4>
-            <p className="text-sm text-blue-600">
-              During the interview, ask the client about their infrastructure, current security measures, 
-              and known risks. Use this information to populate the matrix below. The matrix will help identify 
-              gaps in their security posture and compliance requirements.
+            <h4 className="font-medium text-blue-700">Matrix Population Guidance</h4>
+            <p className="text-sm text-blue-600 mb-2">
+              During the interview, carefully document the organization's infrastructure components, 
+              identifying security risks and vulnerabilities specific to each area. The matrix helps create 
+              a comprehensive picture of the organization's security posture across multiple dimensions:
+            </p>
+            <ul className="text-sm text-blue-600 list-disc pl-5 space-y-1">
+              <li>Technical aspects (risks, vulnerabilities, infrastructure)</li>
+              <li>Compliance requirements (PCI-DSS, HIPAA, GDPR, etc.)</li>
+              <li>MITRE ATT&CK framework (tactics and techniques)</li>
+              <li>Governance documentation (policies, procedures, plans)</li>
+            </ul>
+            <p className="text-sm text-blue-600 mt-2">
+              This structured approach ensures that no critical security elements are overlooked during the assessment.
             </p>
           </div>
         </div>
@@ -466,6 +475,77 @@ export default function MatrixForm({
                           className="text-sm font-medium cursor-pointer"
                         >
                           {technique.name}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium mb-2">Required Policies</h4>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+                  {policies.map((policy) => (
+                    <div key={policy.key} className="flex items-center space-x-2">
+                      <Checkbox 
+                        id={`${infra.key}-policy-${policy.key}`}
+                        checked={!!matrixData[infra.key]?.policies?.[policy.key]}
+                        onCheckedChange={(checked) => 
+                          handlePolicyChange(infra.key, policy.key, !!checked)
+                        }
+                      />
+                      <label 
+                        htmlFor={`${infra.key}-policy-${policy.key}`}
+                        className="text-sm font-medium cursor-pointer"
+                      >
+                        {policy.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 className="font-medium mb-2">Required Procedures</h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {procedures.map((procedure) => (
+                      <div key={procedure.key} className="flex items-center space-x-2">
+                        <Checkbox 
+                          id={`${infra.key}-procedure-${procedure.key}`}
+                          checked={!!matrixData[infra.key]?.procedures?.[procedure.key]}
+                          onCheckedChange={(checked) => 
+                            handleProcedureChange(infra.key, procedure.key, !!checked)
+                          }
+                        />
+                        <label 
+                          htmlFor={`${infra.key}-procedure-${procedure.key}`}
+                          className="text-sm font-medium cursor-pointer"
+                        >
+                          {procedure.name}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-medium mb-2">Required Plans</h4>
+                  <div className="grid grid-cols-1 gap-2">
+                    {plans.map((plan) => (
+                      <div key={plan.key} className="flex items-center space-x-2">
+                        <Checkbox 
+                          id={`${infra.key}-plan-${plan.key}`}
+                          checked={!!matrixData[infra.key]?.plans?.[plan.key]}
+                          onCheckedChange={(checked) => 
+                            handlePlanChange(infra.key, plan.key, !!checked)
+                          }
+                        />
+                        <label 
+                          htmlFor={`${infra.key}-plan-${plan.key}`}
+                          className="text-sm font-medium cursor-pointer"
+                        >
+                          {plan.name}
                         </label>
                       </div>
                     ))}
