@@ -23,14 +23,26 @@ import {
 
 const formSchema = z.object({
   businessName: z.string().min(2, "Business name is required"),
+  businessAddress: z.string().min(5, "Business address is required"),
   industry: z.string().min(1, "Please select your industry"),
   employeeCount: z.string().min(1, "Please select employee count"),
+  businessServices: z.string().min(5, "Please describe the business services you offer"),
+  operationMode: z.string().min(1, "Please select your mode of operation"),
+  internetPresence: z.string().min(1, "Please select your internet presence type"),
   securityMeasures: z.array(z.string()).min(1, "Please select at least one security measure"),
   primaryConcerns: z.array(z.string()).min(1, "Please select at least one primary concern"),
   contactInfo: z.object({
     name: z.string().min(2, "Contact name is required"),
+    pointOfContact: z.string().min(2, "Business point of contact is required"),
     email: z.string().email("Invalid email address"),
+    contactEmail: z.string().email("Invalid point of contact email address"),
     phone: z.string().min(10, "Please enter a valid phone number"),
+  }),
+  availabilityConfirmation: z.boolean().refine(val => val === true, {
+    message: "You must confirm your availability to participate in the assessment within 30 days"
+  }),
+  referralPermission: z.boolean().refine(val => val === true, {
+    message: "You must provide referral permission to proceed with the free assessment"
   }),
 });
 
@@ -49,15 +61,23 @@ export default function QuestionnaireForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       businessName: formData.businessName || "",
+      businessAddress: formData.businessAddress || "",
       industry: formData.industry || "",
       employeeCount: formData.employeeCount || "",
+      businessServices: formData.businessServices || "",
+      operationMode: formData.operationMode || "",
+      internetPresence: formData.internetPresence || "",
       securityMeasures: formData.securityMeasures || [],
       primaryConcerns: formData.primaryConcerns || [],
       contactInfo: {
         name: formData.contactInfo?.name || "",
+        pointOfContact: formData.contactInfo?.pointOfContact || "",
         email: formData.contactInfo?.email || "",
+        contactEmail: formData.contactInfo?.contactEmail || "",
         phone: formData.contactInfo?.phone || "",
       },
+      availabilityConfirmation: formData.availabilityConfirmation || false,
+      referralPermission: formData.referralPermission || false,
     },
   });
 
@@ -115,6 +135,20 @@ export default function QuestionnaireForm({
                 </FormItem>
               )}
             />
+            
+            <FormField
+              control={form.control}
+              name="businessAddress"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Business Address</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your business address" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}
@@ -163,6 +197,76 @@ export default function QuestionnaireForm({
                       <SelectItem value="51-200">51-200</SelectItem>
                       <SelectItem value="201-500">201-500</SelectItem>
                       <SelectItem value="500+">500+</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="businessServices"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Business Services</FormLabel>
+                  <FormControl>
+                    <Textarea 
+                      placeholder="What type of business services do you offer?"
+                      className="min-h-[100px]"
+                      {...field} 
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="operationMode"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Mode of Operation</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select your mode of operation" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="isp-modem">ISP Modem</SelectItem>
+                      <SelectItem value="mobile-hotspot">Mobile Hotspot</SelectItem>
+                      <SelectItem value="commercial-internet">Commercial Internet</SelectItem>
+                      <SelectItem value="dedicated-connection">Dedicated Connection</SelectItem>
+                      <SelectItem value="satellite">Satellite</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="internetPresence"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Internet Presence</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select your internet presence" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="website">Website</SelectItem>
+                      <SelectItem value="cloud-servers">Servers in the Cloud</SelectItem>
+                      <SelectItem value="office-servers">Servers in the Office</SelectItem>
+                      <SelectItem value="hybrid">Hybrid (Cloud & On-Premises)</SelectItem>
+                      <SelectItem value="minimal">Minimal Presence</SelectItem>
+                      <SelectItem value="none">No Internet Presence</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -272,7 +376,7 @@ export default function QuestionnaireForm({
 
             <div className="md:col-span-2">
               <h3 className="text-lg font-medium mb-4 text-primary">Contact Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
                   name="contactInfo.name"
@@ -289,12 +393,40 @@ export default function QuestionnaireForm({
 
                 <FormField
                   control={form.control}
+                  name="contactInfo.pointOfContact"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Business Point of Contact</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Name of business point of contact" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
                   name="contactInfo.email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>Business Email</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your email" type="email" {...field} />
+                        <Input placeholder="Business email address" type="email" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="contactInfo.contactEmail"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Point of Contact Email</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Email for point of contact" type="email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -308,7 +440,7 @@ export default function QuestionnaireForm({
                     <FormItem>
                       <FormLabel>Phone</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your phone number" {...field} />
+                        <Input placeholder="Business phone number (with area code)" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -316,9 +448,56 @@ export default function QuestionnaireForm({
                 />
               </div>
             </div>
+            
+            <div className="md:col-span-2">
+              <h3 className="text-lg font-medium mb-4 text-primary">Participation Agreements</h3>
+              
+              <FormField
+                control={form.control}
+                name="availabilityConfirmation"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 mb-4">
+                    <FormControl>
+                      <Checkbox 
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel className="font-normal cursor-pointer">
+                        I confirm that I would be available to complete this assessment within 30 days if chosen.
+                      </FormLabel>
+                      <FormMessage />
+                    </div>
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="referralPermission"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0">
+                    <FormControl>
+                      <Checkbox 
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel className="font-normal cursor-pointer">
+                        As part of the free SOS²A assessment, I agree that my organization will remain accessible 
+                        to those who may inquire about the program based on our participation.
+                      </FormLabel>
+                      <FormMessage />
+                    </div>
+                  </FormItem>
+                )}
+              />
+            </div>
           </div>
 
-          <div className="flex justify-end">
+          <div className="flex justify-end mt-8">
             <Button type="submit" className="bg-secondary hover:bg-orange-600">
               Continue to Interview & Matrix Population
             </Button>
