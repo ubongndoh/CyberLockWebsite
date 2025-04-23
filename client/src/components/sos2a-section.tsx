@@ -9,7 +9,7 @@ export default function Sos2aSection() {
     },
     {
       number: 2,
-      title: "Interview & Matrix",
+      title: "Interview & Matrix Population",
       description: "Follow-up interview to populate the security assessment matrix."
     },
     {
@@ -62,7 +62,7 @@ export default function Sos2aSection() {
                     </li>
                     <li className="flex items-center text-neutral-600">
                       <div className="w-8 h-8 rounded-full bg-neutral-200 text-neutral-600 flex items-center justify-center mr-3">2</div>
-                      <span>Interview & Matrix</span>
+                      <span>Interview & Matrix Population</span>
                     </li>
                     <li className="flex items-center text-neutral-600">
                       <div className="w-8 h-8 rounded-full bg-neutral-200 text-neutral-600 flex items-center justify-center mr-3">3</div>

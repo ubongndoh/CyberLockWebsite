@@ -149,7 +149,7 @@ export default function MatrixForm({
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6 text-primary">Step 2: Interview & Matrix</h2>
+      <h2 className="text-2xl font-semibold mb-6 text-primary">Step 2: Interview & Matrix Population</h2>
       <p className="mb-6 text-neutral-600">
         Use this matrix to document the organization's security posture across different infrastructure areas.
         This information will be used to generate your preliminary report.
