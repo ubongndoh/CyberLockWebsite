@@ -17,12 +17,15 @@ export default function VideoDemoSection() {
           </div>
           <h2 className="text-3xl font-bold font-heading text-primary mb-4">See CyberLockX in Action</h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-            Watch our DataShieldAI technology demonstrating real-time security protection and advanced encryption capabilities.
+            Watch our ECSMID DataShieldAI technology in action as it creates an impenetrable web against ransomware and other cyber threats.
           </p>
         </div>
         
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:shadow-xl">
-          <div className="aspect-w-16 aspect-h-9 relative">
+          <div className="rounded-t-lg overflow-hidden">
+            <img src="/assets/edai-video-optimized.jpg" alt="ECSMID DataShieldAI Preview" className="w-full h-auto" />
+          </div>
+          <div className="aspect-w-16 aspect-h-9 relative border-t-2 border-primary/20">
             <video 
               className="w-full h-full object-cover"
               autoPlay
@@ -30,7 +33,6 @@ export default function VideoDemoSection() {
               loop
               playsInline
               controls
-              poster="/assets/edai-video.png"
             >
               <source src="/assets/2025DatasiAiFINAL_Update_2025.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -48,7 +50,7 @@ export default function VideoDemoSection() {
                 Triple-patented Technology
               </span>
               <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">
-                Ransomware Protection
+                Real-time Threat Prevention
               </span>
               <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">
                 Cell-level Encryption
