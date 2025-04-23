@@ -90,19 +90,91 @@ export default function MatrixForm({
 
   const infrastructureTypes = [
     { key: "internet_presence", name: "Internet Presence (Website and social media)" },
+    { key: "internet_presence_cloud", name: "Internet Presence with VM (Cloud-Based)" },
+    { key: "pos_system_no_internet", name: "POS System Cellular Data Network: No ISP Internet Footprint" },
+    { key: "pos_system_with_internet", name: "POS System Cellular Data Network: ISP Internet Footprint" },
     { key: "email_usage", name: "Email Use" },
-    { key: "network_security", name: "Network Security" },
-    { key: "endpoint_security", name: "Endpoint Security" },
-    { key: "data_storage", name: "Data Storage and Backup" }
+    { key: "email_social_only", name: "Email Use without Website (Social media only)" },
+    { key: "internet_access_isp", name: "Internet Access via ISP" },
+    { key: "internet_access_mobile", name: "Internet Access Mobile Data/Hotspots" },
+    { key: "ai_applications", name: "AI applications (ChatGPT, Copilot, etc.)" },
+    { key: "firewall_vpn", name: "Firewall and VPN Solutions" },
+    { key: "endpoint_security", name: "Endpoint and Device Security (EDR, MDM)" },
+    { key: "network_segmentation", name: "Network Segmentation" },
+    { key: "backup_disaster_recovery", name: "Backup and Disaster Recovery" },
+    { key: "email_filtering", name: "Email Filtering and Anti-Phishing Tools" },
+    { key: "mfa", name: "Multi-Factor Authentication (MFA)" },
+    { key: "dns_filtering", name: "DNS Filtering and Secure DNS" },
+    { key: "cloud_security", name: "Cloud Security Tools (CASB, WAF)" },
+    { key: "incident_response", name: "Incident Response Plan" },
+    { key: "employee_training", name: "Employee Training on Cybersecurity Threats" },
+    { key: "data_encryption", name: "Data Encryption and DLP Tools" }
   ];
 
   const complianceStandards = [
     { key: "pci_dss", name: "PCI-DSS" },
     { key: "hipaa", name: "HIPAA" },
+    { key: "cmmc", name: "CMMC" },
     { key: "gdpr", name: "GDPR" },
     { key: "ccpa", name: "CCPA" },
-    { key: "nist", name: "NIST CSF" },
-    { key: "iso27001", name: "ISO 27001" }
+    { key: "soc2", name: "SOC 2" },
+    { key: "iso27001", name: "ISO 27001" },
+    { key: "cyber_essentials", name: "Cyber Essentials (UK)" },
+    { key: "ferpa", name: "FERPA" },
+    { key: "glba", name: "GLBA" },
+    { key: "pipeda", name: "PIPEDA" },
+    { key: "ftc", name: "FTC Safeguard Rules" },
+    { key: "sba_csg", name: "SBA CSG" },
+    { key: "fisma", name: "FISMA" },
+    { key: "dfars", name: "DFARS" }
+  ];
+  
+  const mitreTactics = [
+    { key: "initial_access", name: "Initial Access (TA0001)" },
+    { key: "execution", name: "Execution (TA0002)" },
+    { key: "persistence", name: "Persistence (TA0003)" },
+    { key: "privilege_escalation", name: "Privilege Escalation (TA0004)" },
+    { key: "defense_evasion", name: "Defense Evasion (TA0005)" },
+    { key: "credential_access", name: "Credential Access (TA0006)" },
+    { key: "discovery", name: "Discovery (TA0007)" },
+    { key: "lateral_movement", name: "Lateral Movement (TA0008)" },
+    { key: "collection", name: "Collection (TA0009)" },
+    { key: "exfiltration", name: "Exfiltration (TA0010)" },
+    { key: "command_and_control", name: "Command and Control (TA0011)" }
+  ];
+  
+  const mitreTechniques = [
+    { key: "t1566", name: "Phishing (T1566)" },
+    { key: "t1595", name: "Active Scanning (T1595)" },
+    { key: "t1583", name: "Acquire Infrastructure (T1583)" },
+    { key: "t1580", name: "Obtain Capabilities (T1580)" },
+    { key: "t1592", name: "Gather Victim Host Information (T1592)" }
+  ];
+  
+  const policies = [
+    { key: "acceptable_use", name: "Acceptable Use Policy (AUP)" },
+    { key: "access_control", name: "Access Control Policy" },
+    { key: "incident_response", name: "Incident Response Policy" },
+    { key: "remote_work", name: "Remote Work Policy" },
+    { key: "email_communication", name: "Email and Communication Policy" },
+    { key: "vendor_management", name: "Vendor Management Policy" },
+    { key: "information_security", name: "Information Security Policy" }
+  ];
+  
+  const procedures = [
+    { key: "access_control_procedures", name: "Access Control Procedures" },
+    { key: "data_protection_procedures", name: "Data Protection Procedures" },
+    { key: "incident_response_procedures", name: "Incident Response Procedures" }
+  ];
+  
+  const plans = [
+    { key: "business_continuity", name: "Business Continuity Plan (BCP)" },
+    { key: "disaster_recovery", name: "Disaster Recovery Plan (DRP)" },
+    { key: "incident_response_plan", name: "Incident Response Plan (IRP)" },
+    { key: "employee_training", name: "Employee Training Plan" },
+    { key: "audit_plan", name: "Audit Plan" },
+    { key: "technology_lifecycle", name: "Technology Lifecycle Plan" },
+    { key: "soc_monitoring", name: "SOC Monitoring Plan" }
   ];
 
   const handleSubmit = () => {
@@ -142,6 +214,71 @@ export default function MatrixForm({
         compliance: {
           ...(prev[infraKey]?.compliance || {}),
           [complianceKey]: checked
+        }
+      }
+    }));
+  };
+  
+  const handleMitreTacticChange = (infraKey: string, tacticKey: string, checked: boolean) => {
+    setMatrixData((prev: any) => ({
+      ...prev,
+      [infraKey]: {
+        ...prev[infraKey],
+        mitreTactics: {
+          ...(prev[infraKey]?.mitreTactics || {}),
+          [tacticKey]: checked
+        }
+      }
+    }));
+  };
+  
+  const handleMitreTechniqueChange = (infraKey: string, techniqueKey: string, checked: boolean) => {
+    setMatrixData((prev: any) => ({
+      ...prev,
+      [infraKey]: {
+        ...prev[infraKey],
+        mitreTechniques: {
+          ...(prev[infraKey]?.mitreTechniques || {}),
+          [techniqueKey]: checked
+        }
+      }
+    }));
+  };
+  
+  const handlePolicyChange = (infraKey: string, policyKey: string, checked: boolean) => {
+    setMatrixData((prev: any) => ({
+      ...prev,
+      [infraKey]: {
+        ...prev[infraKey],
+        policies: {
+          ...(prev[infraKey]?.policies || {}),
+          [policyKey]: checked
+        }
+      }
+    }));
+  };
+  
+  const handleProcedureChange = (infraKey: string, procedureKey: string, checked: boolean) => {
+    setMatrixData((prev: any) => ({
+      ...prev,
+      [infraKey]: {
+        ...prev[infraKey],
+        procedures: {
+          ...(prev[infraKey]?.procedures || {}),
+          [procedureKey]: checked
+        }
+      }
+    }));
+  };
+  
+  const handlePlanChange = (infraKey: string, planKey: string, checked: boolean) => {
+    setMatrixData((prev: any) => ({
+      ...prev,
+      [infraKey]: {
+        ...prev[infraKey],
+        plans: {
+          ...(prev[infraKey]?.plans || {}),
+          [planKey]: checked
         }
       }
     }));
@@ -265,7 +402,7 @@ export default function MatrixForm({
                 </div>
               </div>
 
-              <div>
+              <div className="mb-4">
                 <h4 className="font-medium mb-2">Compliance Requirements</h4>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
                   {complianceStandards.map((compliance) => (
@@ -285,6 +422,54 @@ export default function MatrixForm({
                       </label>
                     </div>
                   ))}
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                  <h4 className="font-medium mb-2">MITRE ATT&CK Tactics</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {mitreTactics.map((tactic) => (
+                      <div key={tactic.key} className="flex items-center space-x-2">
+                        <Checkbox 
+                          id={`${infra.key}-tactic-${tactic.key}`}
+                          checked={!!matrixData[infra.key]?.mitreTactics?.[tactic.key]}
+                          onCheckedChange={(checked) => 
+                            handleMitreTacticChange(infra.key, tactic.key, !!checked)
+                          }
+                        />
+                        <label 
+                          htmlFor={`${infra.key}-tactic-${tactic.key}`}
+                          className="text-sm font-medium cursor-pointer"
+                        >
+                          {tactic.name}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-medium mb-2">MITRE ATT&CK Techniques</h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {mitreTechniques.map((technique) => (
+                      <div key={technique.key} className="flex items-center space-x-2">
+                        <Checkbox 
+                          id={`${infra.key}-technique-${technique.key}`}
+                          checked={!!matrixData[infra.key]?.mitreTechniques?.[technique.key]}
+                          onCheckedChange={(checked) => 
+                            handleMitreTechniqueChange(infra.key, technique.key, !!checked)
+                          }
+                        />
+                        <label 
+                          htmlFor={`${infra.key}-technique-${technique.key}`}
+                          className="text-sm font-medium cursor-pointer"
+                        >
+                          {technique.name}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
