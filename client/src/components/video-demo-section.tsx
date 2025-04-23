@@ -30,7 +30,7 @@ export default function VideoDemoSection() {
               loop
               playsInline
               controls
-              poster="/assets/video-poster.svg"
+              poster="/assets/edai-video.png"
             >
               <source src="/assets/2025DatasiAiFINAL_Update_2025.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -38,17 +38,17 @@ export default function VideoDemoSection() {
           </div>
           
           <div className="p-6">
-            <h3 className="text-xl font-semibold text-primary mb-2">DataShieldAI 2025 - Updated</h3>
+            <h3 className="text-xl font-semibold text-primary mb-2">ECSMID DataShieldAI: Quantum-Resistant Encryption</h3>
             <p className="text-neutral-600 mb-4">
-              This updated demonstration showcases our streamlined technology flow without unnecessary branding, 
-              highlighting how our solutions prevent security breaches in real-time with end-to-end encryption.
+              See how our patented ECSMID technology creates an impenetrable web against ransomware and
+              other cyber threats using quantum-resistant encryption that safeguards your most sensitive data.
             </p>
             <div className="flex flex-wrap gap-2">
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
                 Triple-patented Technology
               </span>
               <span className="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">
-                Real-time Threat Prevention
+                Ransomware Protection
               </span>
               <span className="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">
                 Cell-level Encryption
