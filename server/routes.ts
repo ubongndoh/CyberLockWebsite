@@ -1,10 +1,9 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertAssessmentSchema, insertEarlyAccessSubmissionSchema } from "@shared/schema";
 import { ZodError } from "zod";
 
-export async function registerRoutes(app: Express): Promise<Server> {
+export async function registerRoutes(app: Express) {
   // API routes
   
   // Get all assessments (for a user)
@@ -197,7 +196,4 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ error: "Failed to update early access submission status" });
     }
   });
-  
-  const httpServer = createServer(app);
-  return httpServer;
 }

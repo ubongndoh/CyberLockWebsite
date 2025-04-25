@@ -209,4 +209,138 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+export class MockStorage implements IStorage {
+  private users: User[] = [];
+  private assessments: Assessment[] = [];
+  private earlyAccessSubmissions: EarlyAccessSubmission[] = [];
+  private userId = 1;
+  private assessmentId = 1;
+  private submissionId = 1;
+
+  // User operations
+  async getUser(id: number): Promise<User | undefined> {
+    return this.users.find(user => user.id === id);
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    return this.users.find(user => user.username === username);
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const user = {
+      id: this.userId++,
+      username: insertUser.username,
+      password: insertUser.password,
+      fullName: insertUser.fullName || null,
+      email: insertUser.email || null,
+      companyName: insertUser.companyName || null,
+      role: insertUser.role || "user",
+      createdAt: new Date(),
+    };
+    this.users.push(user);
+    return user;
+  }
+
+  // Assessment operations
+  async getAllAssessments(): Promise<Assessment[]> {
+    return this.assessments;
+  }
+
+  async getAssessment(id: number): Promise<Assessment | undefined> {
+    return this.assessments.find(assessment => assessment.id === id);
+  }
+
+  async createAssessment(insertAssessment: InsertAssessment): Promise<Assessment> {
+    const assessment = {
+      id: this.assessmentId++,
+      userId: insertAssessment.userId || null,
+      businessName: insertAssessment.businessName,
+      industry: insertAssessment.industry,
+      employeeCount: insertAssessment.employeeCount,
+      securityMeasures: insertAssessment.securityMeasures || [],
+      primaryConcerns: insertAssessment.primaryConcerns || [],
+      contactInfo: insertAssessment.contactInfo,
+      reportType: insertAssessment.reportType,
+      securityScore: 70, // Mock score
+      matrixData: insertAssessment.matrixData || null,
+      findings: insertAssessment.findings || null,
+      recommendations: insertAssessment.recommendations || null,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    this.assessments.push(assessment);
+    return assessment;
+  }
+
+  async updateAssessment(id: number, updatedAssessment: InsertAssessment): Promise<Assessment | undefined> {
+    const index = this.assessments.findIndex(assessment => assessment.id === id);
+    if (index === -1) return undefined;
+
+    const assessment = {
+      ...this.assessments[index],
+      businessName: updatedAssessment.businessName,
+      industry: updatedAssessment.industry,
+      employeeCount: updatedAssessment.employeeCount,
+      securityMeasures: updatedAssessment.securityMeasures || [],
+      primaryConcerns: updatedAssessment.primaryConcerns || [],
+      contactInfo: updatedAssessment.contactInfo,
+      reportType: updatedAssessment.reportType,
+      securityScore: 75, // Updated mock score
+      matrixData: updatedAssessment.matrixData || null,
+      findings: updatedAssessment.findings || null,
+      recommendations: updatedAssessment.recommendations || null,
+      updatedAt: new Date()
+    };
+    
+    this.assessments[index] = assessment;
+    return assessment;
+  }
+
+  async deleteAssessment(id: number): Promise<boolean> {
+    const initialLength = this.assessments.length;
+    this.assessments = this.assessments.filter(assessment => assessment.id !== id);
+    return initialLength > this.assessments.length;
+  }
+
+  // Early Access operations
+  async getAllEarlyAccessSubmissions(): Promise<EarlyAccessSubmission[]> {
+    return this.earlyAccessSubmissions;
+  }
+
+  async getEarlyAccessSubmission(id: number): Promise<EarlyAccessSubmission | undefined> {
+    return this.earlyAccessSubmissions.find(submission => submission.id === id);
+  }
+
+  async createEarlyAccessSubmission(submission: InsertEarlyAccessSubmission): Promise<EarlyAccessSubmission> {
+    const newSubmission = {
+      id: this.submissionId++,
+      fullName: submission.fullName,
+      email: submission.email,
+      company: submission.company,
+      phone: submission.phone,
+      companySize: submission.companySize,
+      industry: submission.industry,
+      interestedIn: submission.interestedIn,
+      investmentLevel: submission.investmentLevel,
+      additionalInfo: submission.additionalInfo || null,
+      status: submission.status || "pending",
+      createdAt: new Date()
+    };
+    
+    this.earlyAccessSubmissions.push(newSubmission);
+    return newSubmission;
+  }
+
+  async updateEarlyAccessSubmissionStatus(id: number, status: string): Promise<EarlyAccessSubmission | undefined> {
+    const index = this.earlyAccessSubmissions.findIndex(submission => submission.id === id);
+    if (index === -1) return undefined;
+
+    this.earlyAccessSubmissions[index].status = status;
+    return this.earlyAccessSubmissions[index];
+  }
+}
+
+// Use mock storage in development, real DB storage in production
+export const storage = process.env.NODE_ENV === 'development' 
+  ? new MockStorage() 
+  : new DatabaseStorage();
